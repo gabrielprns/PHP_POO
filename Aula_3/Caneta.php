@@ -20,6 +20,8 @@ class caneta{
    function destampar(){
     $this->tampada = false;
    }
+
+   
 }
 
 ?>
