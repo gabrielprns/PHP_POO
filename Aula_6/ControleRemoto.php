@@ -74,26 +74,49 @@ class ControleRemoto implements Controlador{
     }
 
     public function ligarMudo() {
+          if($this->getLigado()&& $this->getVolume()>0){
+            $this->setVolume(0);
+        }
+        
         
     }
     
     public function desligarMudo() {
+        if($this->getLigado()&& $this->getVolume()==0){
+            $this->setVolume(50);
+        }
+        
         
     }
 
     public function maisVolume() {
+          if($this->getLigado()){
+            $this->setLigado($this->getVolume()+5);
+        }
         
     }
 
     public function menosVolume() {
+          if($this->getLigado()){
+            $this->setLigado($this->getVolume()-5);
+        }
         
     }
 
     public function pause() {
         
+        if($this->getLigado()&& ($this->getTocando())){
+            $this->setTocando(false);
+            
+        }
+        
     }
 
     public function play() {
+         if($this->getLigado()&& !($this->getTocando())){
+            $this->setTocando(true);
+            
+        }
         
     }
 
